@@ -10,12 +10,22 @@
   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 </head>
 <body>
-  <h1>My Page1</h1>
+  <h1 align='center'>My Page1</h1>
+  <form align='center'>
+      <input type='text' id='userName' />
+      <br>
+      <input type="password" name="passWord" id="passWord" value="" />
+      <br>
+      <input type="submit" name="Enter" id="Enter" value="Enter"  onclick='check()'/>
+  </form>
   <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
   <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type='text/javascript'>
     document.write("Hello World!");
     alert ('test');
+    Function check(){
+        alert('haha');
+    }
   </script>
 </body>
 </html>
