@@ -25,6 +25,14 @@
     function check(){
         var user = document.getElementById('userName');
         var pass = document.getElementById('passWord');
+        if (user.value===null || pass.value===null){
+            alert('userName or PassWord is Null');
+        }
+        if (user.value <> 'wangxu' || pass.value <> 'wangxu'){
+            alert('userName or passWord input Error');
+        }else{
+            alert('input Success');
+        }
         
     }
   </script>
