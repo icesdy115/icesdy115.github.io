@@ -14,17 +14,17 @@
   <h1 align='center'>My Page1</h1>
   <form align='center' name='myForm'>
       <input type='text' id='userName' />
-      <p>
+      <br />
       <input type="password" name="passWord" id="passWord" value="" />
-      <p>
+      <br />
       <input type="submit" name="Enter" id="Enter" value="Enter"  onclick='check()'/>
   </form>
 
   <script type='text/javascript'>
     document.write("Hello World!");
     function check(){
-        var user = myForm.passWord.value;
-        alert(user);
+        var user = document.getElementById('userName');
+        alert(user.value);
     }
   </script>
 </body>
