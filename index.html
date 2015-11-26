@@ -6,25 +6,25 @@
 
   <!-- 可选的Bootstrap主题文件（一般不用引入） -->
   <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
+  <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js">
+  <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js">
   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 </head>
 <body>
   <h1 align='center'>My Page1</h1>
-  <form align='center'>
+  <form align='center' name='myForm'>
       <input type='text' id='userName' />
       <p>
       <input type="password" name="passWord" id="passWord" value="" />
       <p>
       <input type="submit" name="Enter" id="Enter" value="Enter"  onclick='check()'/>
   </form>
-  <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   <script type='text/javascript'>
     document.write("Hello World!");
     function check(){
-        var user = #userName.value();
-        document.write(user);
+        var user = myForm.passWord.value;
+        alert(user);
     }
   </script>
 </body>
