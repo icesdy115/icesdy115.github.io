@@ -30,12 +30,10 @@
         var pass = document.getElementById('passWord');
         if (user.value=='' || pass.value==''){
             alert('userName or PassWord is Null');
-        }
-        if (user.value != assUser || pass.value != assPass){
+        }else if (user.value != assUser || pass.value != assPass){
             alert('userName or passWord input Error');
         }else{
             alert('input Success');
-            
         }
         
     }
