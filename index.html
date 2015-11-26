@@ -13,7 +13,7 @@
 </head>
 <body>
   <h1 align='center'>My Page1</h1>
-  <form align='center' name='myForm'>
+  <form align='center' name='myForm' method='post'>
       <input type='text' id='userName' />
       <br />
       <input type="password" name="passWord" id="passWord" value="" />
@@ -25,7 +25,7 @@
     function check(){
         var user = document.getElementById('userName');
         var pass = document.getElementById('passWord');
-        if (user.value===null || pass.value===null){
+        if (user.value==='' || pass.value===''){
             alert('userName or PassWord is Null');
         }
         if (user.value <> 'wangxu' || pass.value <> 'wangxu'){
