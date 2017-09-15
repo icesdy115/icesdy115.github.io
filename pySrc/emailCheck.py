@@ -18,19 +18,21 @@ for mL in mailLists:
 	print a
 
 #取url扩展名
-def strings(url):
-	lists = ['.php','.html','.asp','.jsp']
-	for list in lists:
-		suffix = re.findall(list,url)
-		if len(suffix)>0:
-			return list
-url ='http://www.baidu.com/tieba.html'
-
-a = strings(url)
-print a
-
-sum = lambda x,y : x + y
-print sum(1,2)
+#===============================================================================
+# def strings(url):
+# 	lists = ['.php','.html','.asp','.jsp']
+# 	for list in lists:
+# 		suffix = re.findall(list,url)
+# 		if len(suffix)>0:
+# 			return list
+# url ='http://www.baidu.com/tieba.html'
+# 
+# a = strings(url)
+# print a
+# 
+# sum = lambda x,y : x + y
+# print sum(1,2)
+#===============================================================================
 
 if __name__ == '__main__':
     emailCheck()
