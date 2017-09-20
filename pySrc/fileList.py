@@ -6,7 +6,7 @@ def fileList():
     lfile=os.listdir(openDir)
     
     for sfileName in lfile:
-        print sfileName
+        print (sfileName)
 
 if __name__ == '__main__':
     fileList()
