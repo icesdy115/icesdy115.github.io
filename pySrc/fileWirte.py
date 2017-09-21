@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 import os
 
 
@@ -17,8 +17,8 @@ def testLen():
         print('no file')
 
 
-#	for lines in open('C:\\Users\\wangxu\\Desktop\\pyStudy\\test.py','r'):
-#		print lines
+# 	for lines in open('C:\\Users\\wangxu\\Desktop\\pyStudy\\test.py','r'):
+# 		print lines
 
 if __name__ == '__main__':
     testLen()

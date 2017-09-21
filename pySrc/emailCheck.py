@@ -3,21 +3,27 @@ import re
 
 #验证邮箱格式
 def emailCheck(e):
+	mess = ['email input right',
+		'email input format error',
+		'email length more than 5']
 	if len(e) >= 5:
-		if re.match("[a-zA-Z0-9]+\@+[a-zA-Z0-9]+\.+[a-zA-Z]",e):
-			print('email input right')
-			return 'email input right'		
+		if re.match("[a-zA-Z0-9]+\@+[a-zA-Z0-9]+\.+[a-zA-Z]", e):
+			print(mess[0])
+			return 1		
 		else:
-			print('email input error1')
-			return 'email input error1'
-			
-	return 'email input error2'
-
+			print(mess[1])
+			return 2
+	else:
+		# print('email length more than 5')
+		print(mess[2])
+		return 3
+ 	
 def emailCheckTest():
-	emailList=("w@w.com","w","")
+	emailList = ("w@w.com", "wwwwww", "", "w")
 	for ml in emailList:
-		print ("Check email address is :"+ml)
+		print ("Check email address is :" + ml)
 		emailCheck(ml)
+		
 
 #取url扩展名
 #===============================================================================
