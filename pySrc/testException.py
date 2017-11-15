@@ -8,4 +8,4 @@ L = []
 for (x,y) in zip(x1,y1):
     if y > 10:
         L.append(x**2)
-print L
+print (L)
