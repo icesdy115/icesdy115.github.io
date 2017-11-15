@@ -45,7 +45,7 @@ def souFileRead():
         resultF.writelines('文件总记录数:%d \n' % fileSum)
         resultF.writelines('正则表达式检索到的记录数:%d \n' % fileKwSum)
 
-    print 'Success!'
+    print ('Success!')
 
     reExp.close()
     resultF.close()
