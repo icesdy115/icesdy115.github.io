@@ -1,5 +1,4 @@
-CENTOS SSH端口修改
-##CENTOS SSH端口修改
+## CENTOS SSH端口修改
 1. 修改ssh配置文件
 ```bash
 # vi /etc/ssh/sshd_config
@@ -12,5 +11,6 @@ CENTOS SSH端口修改
 # service sshd restart
 ```
 3. 使用ssh重新登录
-```bash# ssh username@IP -p prot
+```bash
+# ssh username@IP -p prot
 ```
