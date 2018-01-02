@@ -9,7 +9,8 @@
 # mkdir /mnt/windows
 # mount -o username=administrator,password=123456 //192.168.1.101/gongxiang /mnt/windows
 ```
-samba设置
+
+#### samba设置
 
 - 安装samba
 ```
