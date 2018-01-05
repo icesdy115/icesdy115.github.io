@@ -4,26 +4,26 @@
 ### 用户帐号
 1. 口令生存期
 ```
-[root@wenzhiyi ~]# vim  /etc/login.defs
+[root@wangxu ~]# vim  /etc/login.defs
 PASS_MAX_DAYS       90              # 用户的密码不过期最多的天数
 PASS_MIN_DAYS       10              # 密码修改之间最小的天数
 PASS_WARN_AGE      7                # 口令失效前多少天开始通知用户修改密码
 ```
 2. 口令复杂度
 ```
-[root@wenzhiyi ~]# vim  /etc/pam.d/system-auth,在文件中找到如下内容:
+[root@wangxu ~]# vim  /etc/pam.d/system-auth,在文件中找到如下内容:
 password requisite  pam_cracklib.so 将其修改为:
 password requisite  pam_cracklib.so try_first_pass retry=3 dcredit=-1 lcredit=-1 ucredit=-1 ocredit=-1 minlen=8       
 # 至少包含一个数字.一个小写字母.一个大写字母.一个特殊字符.且密码长度>=8
 ```
 3. 版本信息
 ```
-[root@wenzhiyi ~]# cat /etc/system-release
+[root@wangxu ~]# cat /etc/system-release
 CentOS release 6.8 (Final)
 ```
 4. 限制某用户登陆
 ```
-[root@wenzhiyi ~]#vim  /etc/hosts.deny 对配置文件进行修改
+[root@wangxu ~]#vim  /etc/hosts.deny 对配置文件进行修改
 添加内容：
 #禁止192.168.0.254用户对服务器进行ssh的登陆
 sshd : 192.168.0.254  
@@ -41,19 +41,19 @@ iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport 80 -j DROP
 ```
 5. 检查是否有除root用户以外UID为0的用户
 ```
-[root@wenzhiyi ~]#  awk -F “：” '($3==0)  {print  $1} ' /etc/passwd
+[root@wangxu ~]#  awk -F “：” '($3==0)  {print  $1} ' /etc/passwd
 # 操作系统Linux超级用户策略安全基线要求项目，要求除roo外不能有UID为0的用户。
 ```
 6. 登录超时限制
 ```
-[root@wenzhiyi ~]# cp -p /etc/profile /etc/profile_bak
-[root@wenzhiyi ~]# vi /etc/profile
+[root@wangxu ~]# cp -p /etc/profile /etc/profile_bak
+[root@wangxu ~]# vi /etc/profile
 TMOUT=300                                 
 export TMOUT
 ```
 7. 检查是否使用PAM认证模块禁止wheel组之外的用户su为root
 ```
-[root@wenzhiyi ~]# #vim /etc/pam.d/su       # 新添加以下两行
+[root@wangxu ~]# #vim /etc/pam.d/su       # 新添加以下两行
 auth            sufficient      pam_rootok.so
 auth            required        pam_wheel.so use_uid
 ```
@@ -61,24 +61,24 @@ auth            required        pam_wheel.so use_uid
 ### 协议安全
 1. 限制root用户远程登录SSH
 ```
-[root@wenzhiyi ~]# grep -v "[[:space:]]*#" /etc/ssh/sshd_config  |grep "PermitRootLogin no"
+[root@wangxu ~]# grep -v "[[:space:]]*#" /etc/ssh/sshd_config  |grep "PermitRootLogin no"
 PermitRootLogin no
 protocol   2
 ```
 2. 使用SSH协议进程远程登陆
 ```
-[root@wenzhiyi ~]# cp -p /etc/xinetd.d/telnet /etc/xinetd.d/telnet_bak
-[root@wenzhiyi ~]# vi /etc/xinetd.d/telnet   # 把disable项改为yes,即disable = yes.
-[root@wenzhiyi ~]# service xinetd restart
+[root@wangxu ~]# cp -p /etc/xinetd.d/telnet /etc/xinetd.d/telnet_bak
+[root@wangxu ~]# vi /etc/xinetd.d/telnet   # 把disable项改为yes,即disable = yes.
+[root@wangxu ~]# service xinetd restart
 ```
 >使用Telnet这个用来访问远程计算机的TCP/IP协议以控制你的网络设备，相当于在离开某个建筑时大喊你的用户名和口令。很快会有人进行监听，并且他们会利用你安全意识的缺乏。传统的网络服务程序如：ftp、pop和telnet在本质上都是不安全的，因为它们在网络上用明文传送口令和数据，别有用心的人非常容易就可以截获这些口令和数据。SSH是替代Telnet和其他远程控制台管理应用程序的行业标准。SSH命令是加密的并以几种方式进行保密。 在使用SSH的时候，一个数字证书将认证客户端（你的工作站）和服务器（你的网络设备）之间的连接，并加密受保护的口令。
 
 3. 禁止root用户登陆FTP
 ```
-[root@wenzhiyi ~]# cat /etc/pam.d/vsftpd
+[root@wangxu ~]# cat /etc/pam.d/vsftpd
 auth       required     pam_listfile.so item=user sense=deny file=/etc/vsftpd/ftpusers onerr=succeed
 # 其中file=/etc/vsftpd/ftpusers即为当前系统上的ftpusers文件.
-[root@wenzhiyi ~]#echo "root" >> /etc/vsftpd/ftpusers
+[root@wangxu ~]#echo "root" >> /etc/vsftpd/ftpusers
 daemon
 bin
 sys
@@ -93,29 +93,29 @@ root
 ```
 4. 禁止匿名FTP
 ```
-[root@wenzhiyi ~]# vim  /etc/vsftpd/vsftpd.conf
+[root@wangxu ~]# vim  /etc/vsftpd/vsftpd.conf
 anonymous_enable=NO    # 如果存在anonymous_enable则修改,如果不存在则手动增加
 ```
 5. 预防Flood攻击
 ```
-[root@wenzhiyi ~]# vim  /etc/sysctl.conf
-[root@wenzhiyi ~]# net.ipv4.tcp_syncookies = 1
-[root@wenzhiyi ~]# sysctl  -p  //让命令生效
+[root@wangxu ~]# vim  /etc/sysctl.conf
+[root@wangxu ~]# net.ipv4.tcp_syncookies = 1
+[root@wangxu ~]# sysctl  -p  //让命令生效
 ```
 
 ### 认证权限
 1. 文件与目录缺省权限控制
 ```
-[root@wenzhiyi ~]# cp /etc/profile /etc/profile.bak
-[root@wenzhiyi ~]# vim /etc/profile
+[root@wangxu ~]# cp /etc/profile /etc/profile.bak
+[root@wangxu ~]# vim /etc/profile
 umask 027
-[root@wenzhiyi ~]# source /etc/profile
+[root@wangxu ~]# source /etc/profile
 ```
 2. 配置用户最小权限
 ```
-[root@wenzhiyi ~]# chmod 644 /etc/passwd
-[root@wenzhiyi ~]# chmod 400 /etc/shadow
-[root@wenzhiyi ~]# chmod 644 /etc/group
+[root@wangxu ~]# chmod 644 /etc/passwd
+[root@wangxu ~]# chmod 400 /etc/shadow
+[root@wangxu ~]# chmod 644 /etc/group
 ```
 
 ### 日志审计
@@ -125,7 +125,7 @@ umask 027
 
 1. 启用远程日志功能
 ```
-[root@wenzhiyi ~]# vim /etc/rsyslog.conf
+[root@wangxu ~]# vim /etc/rsyslog.conf
 ###增加如下内容:
 *.*    @Syslog日志服务器IP     ###注意：*和@之间存在的是tab键，非空格。
 ```
@@ -135,8 +135,8 @@ rsyslog是一个开源工具，被广泛用于Linux系统以通过TCP/UDP协议�
 
 2. 检查是否记录安全事件日志
 ```
-[root@wenzhiyi ~]# vim  /etc/syslog.conf 或者 /etc/rsyslog.conf
+[root@wangxu ~]# vim  /etc/syslog.conf 或者 /etc/rsyslog.conf
 # 在文件中加入如下内容:*.err;kern.debug;daemon.notice     /var/log/messages
-[root@wenzhiyi ~]# chmod 640 /var/log/messages
-[root@wenzhiyi ~]# service rsyslog restart
+[root@wangxu ~]# chmod 640 /var/log/messages
+[root@wangxu ~]# service rsyslog restart
 ```
