@@ -1,0 +1,51 @@
+
+    <html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+    <link href="default.css" rel="stylesheet">
+    <link href="github.css" rel="stylesheet">
+    </head>
+    <body>
+    <h2 id="ubuntu-server-1504">操作系统：ubuntu server 15.04</h2>
+<h3 id="lvs">LVS分配方式：</h3>
+<ol>
+<li>IP隧道+rr（轮询）</li>
+<li>IP隧道：director分配请求到不同的real server。</li>
+<li>rr：将外部请求按顺序轮流分配到真实服务器。</li>
+</ol>
+<h3 id="lvs_1">LVS安装</h3>
+<ol>
+<li>ipvsadm安装</li>
+</ol>
+<div class="codehilite"><pre><span></span>    &gt;sudo apt-get install ipvsadm
+</pre></div>
+
+
+<h3 id="lvs_2">LVS配置</h3>
+<ol>
+<li>touch ipvsadm.sh</li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#! /bin/bash</span>
+sudo ipvsadm -C
+sudo ipvsadm -At <span class="m">192</span>.168.0.122:80 -s rr
+sudo ipvsadm -at <span class="m">192</span>.168.0.122:80 -r <span class="m">124</span>.248.34.28:8088 -i
+sudo ipvsadm -at <span class="m">192</span>.168.0.122:80 -r <span class="m">124</span>.248.34.24:8088 -i
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>chmod +x ipvsadm.sh</li>
+<li>./ipvsadm.sh</li>
+</ol>
+<h4 id="lvs_3">LVS查看</h4>
+<ol>
+<li>sudo ipvsadm -L -c</li>
+<li>sudo ipvsadm -L --stats</li>
+</ol>
+    </body>
+    </html>
+    

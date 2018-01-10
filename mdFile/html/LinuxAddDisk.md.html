@@ -1,0 +1,44 @@
+
+    <html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+    <link href="default.css" rel="stylesheet">
+    <link href="github.css" rel="stylesheet">
+    </head>
+    <body>
+    <h3 id="linux">Linux添加硬盘</h3>
+<ul>
+<li>检测新增存储</li>
+</ul>
+<div class="codehilite"><pre><span></span># fdisk -l /dev/sdb
+</pre></div>
+
+
+<ul>
+<li>创建新分区</li>
+</ul>
+<div class="codehilite"><pre><span></span># fdisk /dev/sdb
+</pre></div>
+
+
+<p><img alt="创建新分区" src="./_创建分区.png" />
+- 格式化分区</p>
+<div class="codehilite"><pre><span></span># msf.ext4 /dev/sdb1
+</pre></div>
+
+
+<p><img alt="格式化分区" src="./_格式化分区.png" />
+- 挂载新硬盘</p>
+<div class="codehilite"><pre><span></span># mount /dev/sdb1 /patent
+</pre></div>
+
+
+<ul>
+<li>设置开机自动挂载</li>
+</ul>
+<div class="codehilite"><pre><span></span># vi /etc/fstab
+&gt;&gt;&gt; /dev/sdb1 /patent  ext4  auto    defaults  0 0
+</pre></div>
+    </body>
+    </html>
+    
