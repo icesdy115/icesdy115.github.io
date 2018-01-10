@@ -1,10 +1,10 @@
-# -*- coding: utf-8 
+# -*- coding: utf-8
 
 import markdown
 import os
 #import imp
-import sys 
-#imp.reload(sys)  
+import sys
+#imp.reload(sys)
 #sys.setdefaultencoding('utf8')
 
 def md2html(mdstr):
@@ -13,20 +13,18 @@ def md2html(mdstr):
     html = '''
     <html>
     <head>
-		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<!-- 新 Bootstrap 核心 CSS 文件 -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
 		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-		<link href="default.css" rel="stylesheet">
-		<link href="github.css" rel="stylesheet">
+	    <meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+        <link href="default.css" rel="stylesheet">
     </head>
-    <body>
-		%s
-    </body>
+        <body>
+            %s
+        </body>
     </html>
     '''
 
@@ -45,7 +43,7 @@ if __name__ == '__main__':
     md = infile.read()
     infile.close()
 
-    
+
     if os.path.exists(sys.argv[2]):
         os.remove(sys.argv[2])
 
