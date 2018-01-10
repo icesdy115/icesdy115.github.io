@@ -1,0 +1,91 @@
+
+    <html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+    <link href="default.css" rel="stylesheet">
+    <link href="github.css" rel="stylesheet">
+    </head>
+    <body>
+    <h3 id="windowslinux">����windows��Linux�ļ�����</h3>
+<h4 id="windowslinux_1">windows�ļ�������Linux</h4>
+<ul>
+<li>
+<p>��windows�����ϴ���һ���ļ��У�gongxiang������������Ϊ�����ļ���</p>
+</li>
+<li>
+<p>��linux�����ϴ�������Ŀ¼/mnt/windows</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span># mkdir /mnt/windows
+# mount -o username=administrator,password=123456 //192.168.1.101/gongxiang /mnt/windows
+</pre></div>
+
+
+<h4 id="samba">samba����</h4>
+<ul>
+<li>��װsamba</li>
+</ul>
+<div class="codehilite"><pre><span></span># yum install samba
+</pre></div>
+
+
+<ul>
+<li>����samba
+a. ���ÿ�������</li>
+</ul>
+<div class="codehilite"><pre><span></span># chkconfig smb on
+# chkconfig nmb on
+</pre></div>
+
+
+<ul>
+<li>�½�smb�û����ڷ���Linux�����ļ�</li>
+</ul>
+<div class="codehilite"><pre><span></span># useradd smb      # �½��û�
+# smbpasswd -a smb  # �޸�����
+</pre></div>
+
+
+<ul>
+<li>samba�����ļ�/etc/samba/smb.conf</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">[tmp]</span>
+<span class="na">comment</span> <span class="o">=</span> <span class="s">Tmp Directories</span>
+<span class="na">path</span> <span class="o">=</span> <span class="s">/tmp                        # ������LinuxĿ¼</span>
+<span class="na">public</span> <span class="o">=</span> <span class="s">no                        # Ŀ¼������</span>
+<span class="na">writeable</span> <span class="o">=</span> <span class="s">yes                    # ��д</span>
+<span class="na">browseable</span> <span class="o">=</span> <span class="s">yes                    # �ɶ�</span>
+<span class="na">valid users</span> <span class="o">=</span> <span class="s">smb                  # �����û��������½��ģ�Ҳ����ʹ��ԭ�����е�</span>
+</pre></div>
+
+
+<ul>
+<li>�رշ���ǽ</li>
+</ul>
+<div class="codehilite"><pre><span></span># service firewalld stop
+</pre></div>
+
+
+<ul>
+<li>����samba</li>
+</ul>
+<div class="codehilite"><pre><span></span># service samba start  # ����
+# systemctl restart smb.service # ����
+# systemctl restart nmb.service
+</pre></div>
+
+
+<ul>
+<li>�޸�SELinux��ʵʱ����ģʽ</li>
+</ul>
+<div class="codehilite"><pre><span></span># setenforce 0
+</pre></div>
+
+
+<ul>
+<li>�鿴samba����״̬</li>
+</ul>
+<div class="codehilite"><pre><span></span># smbstatus
+</pre></div>
+    </body>
+    </html>
