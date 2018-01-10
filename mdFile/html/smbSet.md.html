@@ -1,0 +1,99 @@
+
+    <html>
+    <head>
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="default.css" rel="stylesheet">
+		<link href="github.css" rel="stylesheet">
+    </head>
+    <body>
+		<h3 id="windowslinux">设置windows与Linux文件共享</h3>
+<h4 id="windowslinux_1">windows文件共享给Linux</h4>
+<ul>
+<li>
+<p>在windows机器上创建一个文件夹（gongxiang）并将其设置为共享文件夹</p>
+</li>
+<li>
+<p>在linux机器上创建挂载目录/mnt/windows</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span># mkdir /mnt/windows
+# mount -o username=administrator,password=123456 //192.168.1.101/gongxiang /mnt/windows
+</pre></div>
+
+
+<h4 id="samba">samba设置</h4>
+<ul>
+<li>安装samba</li>
+</ul>
+<div class="codehilite"><pre><span></span># yum install samba
+</pre></div>
+
+
+<ul>
+<li>配置samba
+a. 设置开机启动</li>
+</ul>
+<div class="codehilite"><pre><span></span># chkconfig smb on
+# chkconfig nmb on
+</pre></div>
+
+
+<ul>
+<li>新建smb用户用于访问Linux共享文件</li>
+</ul>
+<div class="codehilite"><pre><span></span># useradd smb      # 新建用户
+# smbpasswd -a smb  # 修改密码
+</pre></div>
+
+
+<ul>
+<li>samba配置文件/etc/samba/smb.conf</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">[tmp]</span>
+<span class="na">comment</span> <span class="o">=</span> <span class="s">Tmp Directories</span>
+<span class="na">path</span> <span class="o">=</span> <span class="s">/tmp                        # 共享的Linux目录</span>
+<span class="na">public</span> <span class="o">=</span> <span class="s">no                        # 目录不公开</span>
+<span class="na">writeable</span> <span class="o">=</span> <span class="s">yes                    # 可写</span>
+<span class="na">browseable</span> <span class="o">=</span> <span class="s">yes                    # 可读</span>
+<span class="na">valid users</span> <span class="o">=</span> <span class="s">smb                  # 访问用户，上面新建的，也可以使用原来已有的</span>
+</pre></div>
+
+
+<ul>
+<li>关闭防火墙</li>
+</ul>
+<div class="codehilite"><pre><span></span># service firewalld stop
+</pre></div>
+
+
+<ul>
+<li>启动samba</li>
+</ul>
+<div class="codehilite"><pre><span></span># service samba start  # 启动
+# systemctl restart smb.service # 重启
+# systemctl restart nmb.service
+</pre></div>
+
+
+<ul>
+<li>修改SELinux的实时运行模式</li>
+</ul>
+<div class="codehilite"><pre><span></span># setenforce 0
+</pre></div>
+
+
+<ul>
+<li>查看samba链接状态</li>
+</ul>
+<div class="codehilite"><pre><span></span># smbstatus
+</pre></div>
+    </body>
+    </html>
+    

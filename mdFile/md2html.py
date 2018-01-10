@@ -13,12 +13,19 @@ def md2html(mdstr):
     html = '''
     <html>
     <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
-    <link href="default.css" rel="stylesheet">
-    <link href="github.css" rel="stylesheet">
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="default.css" rel="stylesheet">
+		<link href="github.css" rel="stylesheet">
     </head>
     <body>
-    %s
+		%s
     </body>
     </html>
     '''
