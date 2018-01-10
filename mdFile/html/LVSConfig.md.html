@@ -3,30 +3,30 @@
     <head>
     	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!-- ĞÂ Bootstrap ºËĞÄ CSS ÎÄ¼ş -->
+		<!-- æ–° Bootstrap æ ¸å¿ƒ CSS æ–‡ä»¶ -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<!-- ¿ÉÑ¡µÄBootstrapÖ÷ÌâÎÄ¼ş£¨Ò»°ã²»ÓÃÒıÈë£© -->
+		<!-- å¯é€‰çš„Bootstrapä¸»é¢˜æ–‡ä»¶ï¼ˆä¸€èˆ¬ä¸ç”¨å¼•å…¥ï¼‰ -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="default.css" rel="stylesheet">
     </head>
         <body>
-            <h2 id="ubuntu-server-1504">²Ù×÷ÏµÍ³£ºubuntu server 15.04</h2>
-<h3 id="lvs">LVS·ÖÅä·½Ê½£º</h3>
+            <h2 id="ubuntu-server-1504">æ“ä½œç³»ç»Ÿï¼šubuntu server 15.04</h2>
+<h3 id="lvs">LVSåˆ†é…æ–¹å¼ï¼š</h3>
 <ol>
-<li>IPËíµÀ+rr£¨ÂÖÑ¯£©</li>
-<li>IPËíµÀ£ºdirector·ÖÅäÇëÇóµ½²»Í¬µÄreal server¡£</li>
-<li>rr£º½«Íâ²¿ÇëÇó°´Ë³ĞòÂÖÁ÷·ÖÅäµ½ÕæÊµ·şÎñÆ÷¡£</li>
+<li>IPéš§é“+rrï¼ˆè½®è¯¢ï¼‰</li>
+<li>IPéš§é“ï¼šdirectoråˆ†é…è¯·æ±‚åˆ°ä¸åŒçš„real serverã€‚</li>
+<li>rrï¼šå°†å¤–éƒ¨è¯·æ±‚æŒ‰é¡ºåºè½®æµåˆ†é…åˆ°çœŸå®æœåŠ¡å™¨ã€‚</li>
 </ol>
-<h3 id="lvs_1">LVS°²×°</h3>
+<h3 id="lvs_1">LVSå®‰è£…</h3>
 <ol>
-<li>ipvsadm°²×°</li>
+<li>ipvsadmå®‰è£…</li>
 </ol>
 <div class="codehilite"><pre><span></span>    &gt;sudo apt-get install ipvsadm
 </pre></div>
 
 
-<h3 id="lvs_2">LVSÅäÖÃ</h3>
+<h3 id="lvs_2">LVSé…ç½®</h3>
 <ol>
 <li>touch ipvsadm.sh</li>
 </ol>
@@ -46,7 +46,7 @@ sudo ipvsadm -at <span class="m">192</span>.168.0.122:80 -r <span class="m">124<
 <li>chmod +x ipvsadm.sh</li>
 <li>./ipvsadm.sh</li>
 </ol>
-<h4 id="lvs_3">LVS²é¿´</h4>
+<h4 id="lvs_3">LVSæŸ¥çœ‹</h4>
 <ol>
 <li>sudo ipvsadm -L -c</li>
 <li>sudo ipvsadm -L --stats</li>

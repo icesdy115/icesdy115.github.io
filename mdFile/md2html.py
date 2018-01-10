@@ -48,7 +48,7 @@ if __name__ == '__main__':
         os.remove(sys.argv[2])
 
 
-    outfile = open(sys.argv[2],'a')
+    outfile = open(sys.argv[2],'a',encoding='utf-8')
     outfile.write(md2html(md))
     outfile.close()
 

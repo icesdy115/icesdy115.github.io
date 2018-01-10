@@ -3,18 +3,18 @@
     <head>
     	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!-- �� Bootstrap ���� CSS �ļ� -->
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<!-- ��ѡ��Bootstrap�����ļ���һ�㲻�����룩 -->
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="default.css" rel="stylesheet">
     </head>
         <body>
-            <h2 id="centosiptables">CentOS����ǽiptables��������</h2>
-<h3 id="iptables">iptables��װ&amp;����</h3>
+            <h2 id="centosiptables">CentOS防火墙iptables基本配置</h2>
+<h3 id="iptables">iptables安装&amp;配置</h3>
 <ul>
-<li>�ر�CentOS�Դ�����ǽfirewalld</li>
+<li>关闭CentOS自带防火墙firewalld</li>
 </ul>
 <div class="codehilite"><pre><span></span># service firewalld stop
 # chkconfig firewalld off
@@ -22,69 +22,69 @@
 
 
 <ul>
-<li>��װiptables,��װ����/etc/sysconfigĿ¼�»�����iptables�ļ�</li>
+<li>安装iptables,安装后在/etc/sysconfig目录下会生成iptables文件</li>
 </ul>
 <div class="codehilite"><pre><span></span># yum install iptables-services
 </pre></div>
 
 
 <ul>
-<li>iptables����</li>
+<li>iptables配置</li>
 </ul>
 <div class="codehilite"><pre><span></span>*filter
-:INPUT DROP [0:0]  #��ֹ���н�������
-:FORWARD DROP [0:0]  #��ֹ����ת������
+:INPUT DROP [0:0]  #禁止所有进入数据
+:FORWARD DROP [0:0]  #禁止所有转发数据
 :OUTPUT ACCEPT [0:0]
-#����Բ����ַ�����Ǹ�127.0.0.1���Ǳ�����ʹ�õ�,�������������Ϊ����
+#本地圆环地址就是那个127.0.0.1，是本机上使用的,它进与出都设置为允许
 -A INPUT -i lo -j ACCEPT
-#ֻ����Դ��ַ192.168.202.121��22�˿ڷ���
+#只允许源地址192.168.202.121的22端口访问
 -A INPUT -s 192.168.202.121 -p tcp --dport 22 -j ACCEPT
 COMMIT
 </pre></div>
 
 
 <ul>
-<li>����iptables</li>
+<li>重启iptables</li>
 </ul>
 <div class="codehilite"><pre><span></span># systemctl restart iptables
 </pre></div>
 
 
 <ul>
-<li>����iptables��������</li>
+<li>设置iptables开机启动</li>
 </ul>
 <div class="codehilite"><pre><span></span># systemctl enable iptables
 </pre></div>
 
 
-<h3 id="iptables_1">iptables����</h3>
+<h3 id="iptables_1">iptables命令</h3>
 <ul>
-<li>��յ�ǰ�����й���ͼ���</li>
+<li>清空当前的所有规则和计数</li>
 </ul>
-<div class="codehilite"><pre><span></span># iptables -F      #������еķ���ǽ����
-# iptables -X      #ɾ���û��Զ���Ŀ���
-# iptables -Z      #��ռ���
+<div class="codehilite"><pre><span></span># iptables -F      #清空所有的防火墙规则
+# iptables -X      #删除用户自定义的空链
+# iptables -Z      #清空计数
 </pre></div>
 
 
 <ul>
-<li>�鿴iptables����</li>
+<li>查看iptables规则</li>
 </ul>
 <div class="codehilite"><pre><span></span># iptables -L -n
 </pre></div>
 
 
-<h3 id="_1">ƥ�����</h3>
+<h3 id="_1">匹配规则</h3>
 <ul>
-<li>ƥ��ѡ��ָ�����ݰ������ƥ�������е�����������Դ��ַ��Ŀ�ĵ�ַ������Э��Ͷ˿ں�</li>
+<li>匹配选项指定数据包与规则匹配所具有的特征，包括源地址，目的地址，传输协议和端口号</li>
 </ul>
-<div class="codehilite"><pre><span></span>-i --in-interface    ����ӿ���&gt;     ָ�����ݰ����ĸ�����ӿڽ��룬
--o --out-interface   ����ӿ���&gt;     ָ�����ݰ����ĸ�����ӿ����
--p ---proto          Э������        ָ�����ݰ�ƥ���Э�飬��TCP��UDP��ICMP��
--s --source          Դ��ַ������&gt;   ָ�����ݰ�ƥ���Դ��ַ
-   --sport           Դ�˿ں�&gt;       ָ�����ݰ�ƥ���Դ�˿ں�
-   --dport           Ŀ�Ķ˿ں�&gt;     ָ�����ݰ�ƥ���Ŀ�Ķ˿ں�
--m --match           ƥ���ģ��      ָ�����ݰ�������ʹ�õĹ���ģ��
+<div class="codehilite"><pre><span></span>-i --in-interface    网络接口名&gt;     指定数据包从哪个网络接口进入，
+-o --out-interface   网络接口名&gt;     指定数据包从哪个网络接口输出
+-p ---proto          协议类型        指定数据包匹配的协议，如TCP、UDP和ICMP等
+-s --source          源地址或子网&gt;   指定数据包匹配的源地址
+   --sport           源端口号&gt;       指定数据包匹配的源端口号
+   --dport           目的端口号&gt;     指定数据包匹配的目的端口号
+-m --match           匹配的模块      指定数据包规则所使用的过滤模块
 </pre></div>
         </body>
     </html>

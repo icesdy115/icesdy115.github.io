@@ -3,43 +3,43 @@
     <head>
     	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!-- ĞÂ Bootstrap ºËĞÄ CSS ÎÄ¼ş -->
+		<!-- æ–° Bootstrap æ ¸å¿ƒ CSS æ–‡ä»¶ -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<!-- ¿ÉÑ¡µÄBootstrapÖ÷ÌâÎÄ¼ş£¨Ò»°ã²»ÓÃÒıÈë£© -->
+		<!-- å¯é€‰çš„Bootstrapä¸»é¢˜æ–‡ä»¶ï¼ˆä¸€èˆ¬ä¸ç”¨å¼•å…¥ï¼‰ -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="default.css" rel="stylesheet">
     </head>
         <body>
-            <h3 id="linux">LinuxÌí¼ÓÓ²ÅÌ</h3>
+            <h3 id="linux">Linuxæ·»åŠ ç¡¬ç›˜</h3>
 <ul>
-<li>¼ì²âĞÂÔö´æ´¢</li>
+<li>æ£€æµ‹æ–°å¢å­˜å‚¨</li>
 </ul>
 <div class="codehilite"><pre><span></span># fdisk -l /dev/sdb
 </pre></div>
 
 
 <ul>
-<li>´´½¨ĞÂ·ÖÇø</li>
+<li>åˆ›å»ºæ–°åˆ†åŒº</li>
 </ul>
 <div class="codehilite"><pre><span></span># fdisk /dev/sdb
 </pre></div>
 
 
-<p><img alt="´´½¨ĞÂ·ÖÇø" src="./_´´½¨·ÖÇø.png" />
-- ¸ñÊ½»¯·ÖÇø</p>
+<p><img alt="åˆ›å»ºæ–°åˆ†åŒº" src="./_åˆ›å»ºåˆ†åŒº.png" />
+- æ ¼å¼åŒ–åˆ†åŒº</p>
 <div class="codehilite"><pre><span></span># msf.ext4 /dev/sdb1
 </pre></div>
 
 
-<p><img alt="¸ñÊ½»¯·ÖÇø" src="./_¸ñÊ½»¯·ÖÇø.png" />
-- ¹ÒÔØĞÂÓ²ÅÌ</p>
+<p><img alt="æ ¼å¼åŒ–åˆ†åŒº" src="./_æ ¼å¼åŒ–åˆ†åŒº.png" />
+- æŒ‚è½½æ–°ç¡¬ç›˜</p>
 <div class="codehilite"><pre><span></span># mount /dev/sdb1 /patent
 </pre></div>
 
 
 <ul>
-<li>ÉèÖÃ¿ª»ú×Ô¶¯¹ÒÔØ</li>
+<li>è®¾ç½®å¼€æœºè‡ªåŠ¨æŒ‚è½½</li>
 </ul>
 <div class="codehilite"><pre><span></span># vi /etc/fstab
 &gt;&gt;&gt; /dev/sdb1 /patent  ext4  auto    defaults  0 0

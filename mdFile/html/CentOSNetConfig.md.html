@@ -3,61 +3,61 @@
     <head>
     	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!-- �� Bootstrap ���� CSS �ļ� -->
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<!-- ��ѡ��Bootstrap�����ļ���һ�㲻�����룩 -->
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="default.css" rel="stylesheet">
     </head>
         <body>
-            <h2 id="centos">CentOS��������</h2>
-<h3 id="_1">��װʱ����</h3>
+            <h2 id="centos">CentOS网络配置</h2>
+<h3 id="_1">安装时配置</h3>
 <blockquote>
-<p>�����ڰ�װϵͳʱ�������ý����������磬������ɺ���/etc/sysconfig/net-scriptsĿ¼�����������ļ�</p>
+<p>可以在安装系统时，在配置界面配置网络，配置完成后在/etc/sysconfig/net-scripts目录中生成配置文件</p>
 </blockquote>
-<h3 id="_2">��װ������</h3>
+<h3 id="_2">安装后配置</h3>
 <blockquote>
-<p>ϵͳ��װ��ɺ�/etc/sysconfig/net-scriptsĿ¼�»�����Ĭ�ϵ����������ļ�</p>
+<p>系统安装完成后/etc/sysconfig/net-scripts目录下会生成默认的网络配置文件</p>
 </blockquote>
 <ol>
-<li>�޸������ļ�/etc/sysconfig/net-scripts/ifcfg-enp0s3</li>
+<li>修改配置文件/etc/sysconfig/net-scripts/ifcfg-enp0s3</li>
 </ol>
 <div class="codehilite"><pre><span></span>TYPE=Ethernet
 PROXY_METHOD=none
 BROWSER_ONLY=no
-BOOTPROTO=static  #Ĭ��ΪDHCP���޸�Ϊstatic
+BOOTPROTO=static  #默认为DHCP，修改为static
 DEFROUTE=yes
 IPV4_FAILURE_FATAL=no
 NAME=enp0s3
 UUID=df146854-5a43-4ad6-9533-f8ee8aac72a8
-DEVICE=enp0s3  #��������
-ONBOOT=yes   #Ĭ��ΪNO���޸�Ϊyes
-IPADDR=192.168.202.251  #IP��ַ
-GATEWAY=192.168.202.1   #����
+DEVICE=enp0s3  #网卡名称
+ONBOOT=yes   #默认为NO，修改为yes
+IPADDR=192.168.202.251  #IP地址
+GATEWAY=192.168.202.1   #网关
 DNS1=114.114.114.114    #DNS
 </pre></div>
 
 
 <ol>
-<li>��������</li>
+<li>重启网络</li>
 </ol>
 <div class="codehilite"><pre><span></span># service network restart
 </pre></div>
 
 
-<h3 id="_3">����</h3>
+<h3 id="_3">其他</h3>
 <ol>
-<li>CentOS Mini�汾��װ��Ĭ��û��<code>ifconfig | netstat</code>�������������鿴IP��ʹ��<code>ip a</code>����</li>
-<li>��װ��������߰�</li>
+<li>CentOS Mini版本安装后默认没有<code>ifconfig | netstat</code>等网络命令，如需查看IP可使用<code>ip a</code>命令</li>
+<li>安装网络命令工具包</li>
 </ol>
 <div class="codehilite"><pre><span></span># yum install net-tools
 </pre></div>
 
 
 <ol>
-<li>�ر����� <code>ifdown</code></li>
-<li>�������� <code>ifup</code></li>
+<li>关闭网卡 <code>ifdown</code></li>
+<li>启动网卡 <code>ifup</code></li>
 </ol>
         </body>
     </html>
