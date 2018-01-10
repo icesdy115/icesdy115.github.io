@@ -3,22 +3,22 @@
     <head>
     	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!-- ĞÂ Bootstrap ºËĞÄ CSS ÎÄ¼ş -->
+		<!-- æ–° Bootstrap æ ¸å¿ƒ CSS æ–‡ä»¶ -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<!-- ¿ÉÑ¡µÄBootstrapÖ÷ÌâÎÄ¼ş£¨Ò»°ã²»ÓÃÒıÈë£© -->
+		<!-- å¯é€‰çš„Bootstrapä¸»é¢˜æ–‡ä»¶ï¼ˆä¸€èˆ¬ä¸ç”¨å¼•å…¥ï¼‰ -->
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	    <meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="default.css" rel="stylesheet">
     </head>
         <body>
-            <h3 id="windowslinux">ÉèÖÃwindowsÓëLinuxÎÄ¼ş¹²Ïí</h3>
-<h4 id="windowslinux_1">windowsÎÄ¼ş¹²Ïí¸øLinux</h4>
+            <h3 id="windowslinux">è®¾ç½®windowsä¸Linuxæ–‡ä»¶å…±äº«</h3>
+<h4 id="windowslinux_1">windowsæ–‡ä»¶å…±äº«ç»™Linux</h4>
 <ul>
 <li>
-<p>ÔÚwindows»úÆ÷ÉÏ´´½¨Ò»¸öÎÄ¼ş¼Ğ£¨gongxiang£©²¢½«ÆäÉèÖÃÎª¹²ÏíÎÄ¼ş¼Ğ</p>
+<p>åœ¨windowsæœºå™¨ä¸Šåˆ›å»ºä¸€ä¸ªæ–‡ä»¶å¤¹ï¼ˆgongxiangï¼‰å¹¶å°†å…¶è®¾ç½®ä¸ºå…±äº«æ–‡ä»¶å¤¹</p>
 </li>
 <li>
-<p>ÔÚlinux»úÆ÷ÉÏ´´½¨¹ÒÔØÄ¿Â¼/mnt/windows</p>
+<p>åœ¨linuxæœºå™¨ä¸Šåˆ›å»ºæŒ‚è½½ç›®å½•/mnt/windows</p>
 </li>
 </ul>
 <div class="codehilite"><pre><span></span># mkdir /mnt/windows
@@ -26,17 +26,17 @@
 </pre></div>
 
 
-<h4 id="samba">sambaÉèÖÃ</h4>
+<h4 id="samba">sambaè®¾ç½®</h4>
 <ul>
-<li>°²×°samba</li>
+<li>å®‰è£…samba</li>
 </ul>
 <div class="codehilite"><pre><span></span># yum install samba
 </pre></div>
 
 
 <ul>
-<li>ÅäÖÃsamba
-a. ÉèÖÃ¿ª»úÆô¶¯</li>
+<li>é…ç½®samba
+a. è®¾ç½®å¼€æœºå¯åŠ¨</li>
 </ul>
 <div class="codehilite"><pre><span></span># chkconfig smb on
 # chkconfig nmb on
@@ -44,51 +44,51 @@ a. ÉèÖÃ¿ª»úÆô¶¯</li>
 
 
 <ul>
-<li>ĞÂ½¨smbÓÃ»§ÓÃÓÚ·ÃÎÊLinux¹²ÏíÎÄ¼ş</li>
+<li>æ–°å»ºsmbç”¨æˆ·ç”¨äºè®¿é—®Linuxå…±äº«æ–‡ä»¶</li>
 </ul>
-<div class="codehilite"><pre><span></span># useradd smb      # ĞÂ½¨ÓÃ»§
-# smbpasswd -a smb  # ĞŞ¸ÄÃÜÂë
+<div class="codehilite"><pre><span></span># useradd smb      # æ–°å»ºç”¨æˆ·
+# smbpasswd -a smb  # ä¿®æ”¹å¯†ç 
 </pre></div>
 
 
 <ul>
-<li>sambaÅäÖÃÎÄ¼ş/etc/samba/smb.conf</li>
+<li>sambaé…ç½®æ–‡ä»¶/etc/samba/smb.conf</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="k">[tmp]</span>
 <span class="na">comment</span> <span class="o">=</span> <span class="s">Tmp Directories</span>
-<span class="na">path</span> <span class="o">=</span> <span class="s">/tmp                        # ¹²ÏíµÄLinuxÄ¿Â¼</span>
-<span class="na">public</span> <span class="o">=</span> <span class="s">no                        # Ä¿Â¼²»¹«¿ª</span>
-<span class="na">writeable</span> <span class="o">=</span> <span class="s">yes                    # ¿ÉĞ´</span>
-<span class="na">browseable</span> <span class="o">=</span> <span class="s">yes                    # ¿É¶Á</span>
-<span class="na">valid users</span> <span class="o">=</span> <span class="s">smb                  # ·ÃÎÊÓÃ»§£¬ÉÏÃæĞÂ½¨µÄ£¬Ò²¿ÉÒÔÊ¹ÓÃÔ­À´ÒÑÓĞµÄ</span>
+<span class="na">path</span> <span class="o">=</span> <span class="s">/tmp                        # å…±äº«çš„Linuxç›®å½•</span>
+<span class="na">public</span> <span class="o">=</span> <span class="s">no                        # ç›®å½•ä¸å…¬å¼€</span>
+<span class="na">writeable</span> <span class="o">=</span> <span class="s">yes                    # å¯å†™</span>
+<span class="na">browseable</span> <span class="o">=</span> <span class="s">yes                    # å¯è¯»</span>
+<span class="na">valid users</span> <span class="o">=</span> <span class="s">smb                  # è®¿é—®ç”¨æˆ·ï¼Œä¸Šé¢æ–°å»ºçš„ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨åŸæ¥å·²æœ‰çš„</span>
 </pre></div>
 
 
 <ul>
-<li>¹Ø±Õ·À»ğÇ½</li>
+<li>å…³é—­é˜²ç«å¢™</li>
 </ul>
 <div class="codehilite"><pre><span></span># service firewalld stop
 </pre></div>
 
 
 <ul>
-<li>Æô¶¯samba</li>
+<li>å¯åŠ¨samba</li>
 </ul>
-<div class="codehilite"><pre><span></span># service samba start  # Æô¶¯
-# systemctl restart smb.service # ÖØÆô
+<div class="codehilite"><pre><span></span># service samba start  # å¯åŠ¨
+# systemctl restart smb.service # é‡å¯
 # systemctl restart nmb.service
 </pre></div>
 
 
 <ul>
-<li>ĞŞ¸ÄSELinuxµÄÊµÊ±ÔËĞĞÄ£Ê½</li>
+<li>ä¿®æ”¹SELinuxçš„å®æ—¶è¿è¡Œæ¨¡å¼</li>
 </ul>
 <div class="codehilite"><pre><span></span># setenforce 0
 </pre></div>
 
 
 <ul>
-<li>²é¿´sambaÁ´½Ó×´Ì¬</li>
+<li>æŸ¥çœ‹sambaé“¾æ¥çŠ¶æ€</li>
 </ul>
 <div class="codehilite"><pre><span></span># smbstatus
 </pre></div>
