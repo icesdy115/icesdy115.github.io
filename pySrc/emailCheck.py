@@ -24,7 +24,7 @@ def emailCheckTest():
 		print ("Check email address is :" + ml)
 		emailCheck(ml)
 
-#取url扩展名
+#取url扩展
 #===============================================================================
 # def strings(url):
 # 	lists = ['.php','.html','.asp','.jsp']
