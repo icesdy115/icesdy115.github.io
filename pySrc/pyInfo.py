@@ -13,7 +13,10 @@ class pyTest(object):
 if __name__ == '__main__':
 
     myName = input('input name:')
-    myAge = int(input('input age:'))
+    try:
+        myAge = int(input('input age:'))
+    except ValueError as identifier:
+        myAge = 33
     print ('****************************')
     pt = pyTest(myName,myAge)
     pt.printInfo()
