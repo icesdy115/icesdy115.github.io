@@ -4,5 +4,3 @@ import os
 cmd = 'dir'
 res = os.system(cmd)
 print (res)
-
-
