@@ -3,15 +3,15 @@ import os
 
 
 def testLen():
-    if os.path.isfile('C:\\Users\\wangxu\\Desktop\\test.txt'):
+    if os.path.isfile('/home/wangxu/test'):
         testStr = 'name:wangxu,age:32|name:haha,age:31'
 
         for str2 in testStr.split('|'):
-            fName = 'C:\\Users\\wangxu\\Desktop\\test.txt'
+            fName = '/home/wangxu/test'
             f = open(fName, 'w+')
             f.write(str2)
             f.close()
-            for lines in open('C:\\Users\\wangxu\\Desktop\\test.txt'):
+            for lines in open('/home/wangxu/test'):
                 print(lines)
     else:
         print('no file')

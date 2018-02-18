@@ -2,11 +2,16 @@
 import os
 
 def fileList():
-    openDir = 'C:\\Users\\Administrator\\Desktop\\yinzheng\\before'
-    lfile = os.listdir(openDir)
-    
-    for sfileName in lfile:
-        print (sfileName)
+    filePath = "/home/wangxu"
+    fileList = os.listdir(filePath)
+
+    for fl in fileList:
+        subfl = fl[0]
+        if subfl == '.':
+           pass 
+        else:
+            print (fl)
 
 if __name__ == '__main__':
     fileList()
+    
