@@ -11,37 +11,27 @@
         <link href="default.css" rel="stylesheet">
     </head>
         <body>
-            <h3 id="centos7">CentOS7更换国内阿里源</h3>
-<h4 id="linuxhttpmirrorsaliyuncom">阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/</h4>
-<h4 id="centos">CentOS系统更换软件安装源</h4>
+            <h1 id="centos7">CentOS7更换国内阿里源</h1>
+<h2 id="linuxhttpmirrorsaliyuncom">阿里云Linux安装镜像源地址：<a href="http://mirrors.aliyun.com/">http://mirrors.aliyun.com/</a></h2>
+<h2 id="centos">CentOS系统更换软件安装源</h2>
 <ol>
 <li>服务器安装wget</li>
 </ol>
-<div class="codehilite"><pre><span></span># yum -y install wget
-</pre></div>
-
-
+<p><code># yum -y install wget</code></p>
 <ol>
 <li>备份原镜像文件，以免出错后可以恢复</li>
 </ol>
-<div class="codehilite"><pre><span></span># mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-</pre></div>
-
-
+<p><code># mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</code></p>
 <ol>
 <li>下载新的CentOS-Base.repo 到/etc/yum.repos.d/</li>
 </ol>
-<div class="codehilite"><pre><span></span># wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-</pre></div>
-
-
+<p><code># wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</code></p>
 <ol>
 <li>运行yum makecache生成缓存</li>
 </ol>
-<div class="codehilite"><pre><span></span># yum clean all
-# yum makecache
-# yum -y update
-</pre></div>
+<p><code># yum clean all
+  # yum makecache
+  # yum -y update</code></p>
         </body>
     </html>
     

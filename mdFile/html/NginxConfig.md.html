@@ -1,0 +1,118 @@
+
+    <html>
+    <head>
+    	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="default.css" rel="stylesheet">
+    </head>
+        <body>
+            <h3 id="nginx">Nginx安装配置</h3>
+<h4 id="centosnginx">CentOS安装Nginx</h4>
+<ol>
+<li>使用root权限用户登录服务器</li>
+<li>配置nginx安装源</li>
+</ol>
+<div class="codehilite"><pre><span></span># rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+</pre></div>
+
+
+<ol>
+<li>安装nginx</li>
+</ol>
+<div class="codehilite"><pre><span></span># yum install nginx
+</pre></div>
+
+
+<h4 id="nginx_1">Nginx配置发布静态页面</h4>
+<ol>
+<li>将静态页面放到服务器上</li>
+<li>打开Nginx配置文件</li>
+</ol>
+<div class="codehilite"><pre><span></span># vi /etc/nginx/nginx.conf
+</pre></div>
+
+
+<ol>
+<li>在http节点中加入如下配置</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="nt">server</span> <span class="p">{</span>
+    <span class="err">#listen</span>       <span class="err">80</span><span class="p">;</span>
+    <span class="err">server_name</span>  <span class="err">#IP地址或域名</span><span class="p">;</span>
+    <span class="err">root</span> <span class="err">#静态文件放置路径：/home/test/</span><span class="p">;</span>
+    <span class="err">index</span> <span class="err">#首页显示的静态页面：upgradPage.html</span><span class="p">;</span>
+    <span class="err">#access_log</span>  <span class="err">logs/host.access.log</span>  <span class="err">main</span><span class="p">;</span>
+    <span class="err">location</span> <span class="err">/</span> <span class="err">{</span>
+        <span class="err">#proxy_pass</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">192.168.202.121</span><span class="o">:</span><span class="mi">8081</span><span class="p">;</span>
+        <span class="err">#proxy_set_header</span> <span class="err">Host</span> <span class="err">$host</span><span class="p">;</span>
+        <span class="err">#proxy_set_header</span> <span class="err">X-Forwarded-For</span> <span class="err">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+      <span class="p">}</span>
+ <span class="err">}</span>
+</pre></div>
+
+
+<h4 id="nginx_2">Nginx反向代理设置</h4>
+<ol>
+<li>创建反向代理配置文件</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="err">#</span> <span class="nt">vi</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">nginx</span><span class="o">/</span><span class="nt">conf</span><span class="p">.</span><span class="nc">d</span><span class="o">/</span><span class="nt">www</span><span class="p">.</span><span class="nc">yuming</span><span class="p">.</span><span class="nc">com</span><span class="p">.</span><span class="nc">conf</span>
+    <span class="nt">server</span>
+    <span class="p">{</span>
+        <span class="err">listen</span> <span class="err">80</span><span class="p">;</span>
+        <span class="err">server_name</span> <span class="err">www.yuming.com</span><span class="p">;</span>
+        <span class="err">location</span> <span class="err">/</span> <span class="err">{</span>
+            <span class="err">proxy_redirect</span> <span class="err">off</span><span class="p">;</span>
+            <span class="err">proxy_set_header</span> <span class="err">Host</span> <span class="err">$host</span><span class="p">;</span>
+            <span class="err">proxy_set_header</span> <span class="err">X-Real-IP</span> <span class="err">$remote_addr</span><span class="p">;</span>
+            <span class="err">proxy_set_header</span> <span class="err">X-Forwarded-For</span> <span class="err">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+            <span class="err">proxy_pass</span> <span class="err">#发布地址</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.10.10.88</span><span class="o">:</span><span class="mi">8087</span><span class="p">;</span>
+         <span class="p">}</span>
+         <span class="p">#</span><span class="nn">配置Nginx日志</span>
+         <span class="nt">access_log</span> <span class="o">/</span><span class="nt">dawei</span><span class="o">/</span><span class="nt">nginxLogs</span><span class="o">/</span><span class="nt">sejunzhi_access</span><span class="p">.</span><span class="nc">log</span> <span class="nt">main</span><span class="o">;</span>
+    <span class="err">}</span>
+</pre></div>
+
+
+<ol>
+<li>修改Nginx配置文件</li>
+</ol>
+<div class="codehilite"><pre><span></span># vi /etc/nginx/nginx.conf
+user  nginx;
+worker_processes  8;
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+events {
+    worker_connections  1024;
+}
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+    access_log  /dawei/nginxLogs/access.log  main;
+    sendfile        on;
+    #tcp_nopush     on;
+    keepalive_timeout  65;
+    gzip  on;
+    send_timeout 120;
+    fastcgi_buffers 8 128k;
+    client_max_body_size 500m;
+    include /etc/nginx/conf.d/www.yuming.com.conf;  #导入域名配置文件名
+}
+</pre></div>
+
+
+<ol>
+<li>启动Nginx</li>
+</ol>
+<div class="codehilite"><pre><span></span># systemctl start nginx.service    #启动Nginx
+# nginx -s reload    #重新加载Nginx
+</pre></div>
+        </body>
+    </html>
+    

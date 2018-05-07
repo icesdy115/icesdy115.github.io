@@ -1,47 +1,49 @@
-<html>
 
-<head>
-  <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <!-- 新 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="default.css" rel="stylesheet">
-</head>
-<body>
-  <h3 id="linux">Linux添加硬盘</h3>
-  <ul>
-    <li>检测新增存储</li>
-  </ul>
-  <div class="codehilite"><pre><span></span># fdisk -l /dev/sdb
+    <html>
+    <head>
+    	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="default.css" rel="stylesheet">
+    </head>
+        <body>
+            <h3 id="linux">Linux添加硬盘</h3>
+<ul>
+<li>检测新增存储</li>
+</ul>
+<div class="codehilite"><pre><span></span># fdisk -l /dev/sdb
 </pre></div>
 
 
-  <ul>
-    <li>创建新分区</li>
-  </ul>
-  <div class="codehilite"><pre><span></span># fdisk /dev/sdb
+<ul>
+<li>创建新分区</li>
+</ul>
+<div class="codehilite"><pre><span></span># fdisk /dev/sdb
 </pre></div>
 
 
-  <p><img alt="创建新分区" src="./_创建分区.png" /> - 格式化分区</p>
-  <div class="codehilite"><pre><span></span># msf.ext4 /dev/sdb1
+<p><img alt="创建新分区" src="./_创建分区.png" />
+- 格式化分区</p>
+<div class="codehilite"><pre><span></span># msf.ext4 /dev/sdb1
 </pre></div>
 
 
-  <p><img alt="格式化分区" src="./_格式化分区.png" /> - 挂载新硬盘</p>
-  <div class="codehilite"><pre><span></span># mount /dev/sdb1 /patent
+<p><img alt="格式化分区" src="./_格式化分区.png" />
+- 挂载新硬盘</p>
+<div class="codehilite"><pre><span></span># mount /dev/sdb1 /patent
 </pre></div>
 
 
-  <ul>
-    <li>设置开机自动挂载</li>
-  </ul>
-  <div class="codehilite"><pre><span></span># vi /etc/fstab
+<ul>
+<li>设置开机自动挂载</li>
+</ul>
+<div class="codehilite"><pre><span></span># vi /etc/fstab
 &gt;&gt;&gt; /dev/sdb1 /patent  ext4  auto    defaults  0 0
 </pre></div>
-</body>
-
-</html>
+        </body>
+    </html>
+    
