@@ -1,0 +1,13 @@
+#coding=utf-8
+from xml.etree import ElementTree as ET
+per=ET.parse('userTestData.xml')
+p=per.findall('./email')
+
+for oneper in p:
+    for child in oneper.getchildren():
+        test = child.text
+        t1 = test.split(',')
+        name = t1[0]
+        passwd = t1[1]
+        dstName = t1[2]
+        print(name,' ',passwd,' ',dstName)

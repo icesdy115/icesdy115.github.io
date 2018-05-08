@@ -1,0 +1,89 @@
+# coding:utf-8
+'''
+@author: wangxu
+
+import sys
+sys.path.append('E:\\workspace\\autoTest')
+加入这两句是为了成功导入autoTest.loginModule，否则在命令行执行test.py时会报错
+'''
+import sys
+sys.path.append('E:\\workspace\\autoTest')
+from actionInnojoy import loginModule, simpleSearch
+from selenium import webdriver
+import unittest
+import HTMLTestReportCN
+
+
+class TestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.br = webdriver.Chrome()
+#        self.br = webdriver.Remote("http://localhost:4444/wd/hub", desired_capabilities=webdriver.DesiredCapabilities.CHROME)
+        self.baseURL = 'http://www.innojoy.com/search/index.html'
+        self.emailName = 'liyuxin3154@163.com'
+        self.passWord = '111111'
+        self.expression = 'pd=201501'
+        self.phoneName = '13722971053'
+
+    def loginForEmail(self):
+        u"""使用邮箱登录"""
+        self.br.get(self.baseURL)
+        login = loginModule.loginForEmail(self, self.emailName, self.passWord)
+        # 登录结果验证
+        srcName = login[0]
+        print(srcName)
+        destName = 'dawei'
+        self.assertEqual(srcName, destName, '验证用户名与预期结果不一致')
+
+    def loginForPhone(self):
+        u"""使用手机号登录"""
+        self.br.get(self.baseURL)
+        login = loginModule.loginForPhone(self, self.phoneName, self.passWord)
+        # 登录结果验证
+        srcName = login[0]
+        destName = 'wx'
+        self.assertEqual(srcName, destName, '验证用户名与预期结果不一致')
+
+    def simpleSearchTest(self):
+        u"""简单检索"""
+        self.br.get(self.baseURL)
+        name = 'liyuxin3154@163.com'
+        password = '111111'
+        loginModule.loginForEmail(self, name, password)
+        simpleSearch.simpleSearchAction(self, self.expression)
+        patentNum = int(self.br.find_element_by_xpath(
+            '//*[@id="numcollect"]').text)
+        dstPatentNum = 159350
+        self.assertEqual(patentNum, dstPatentNum, '检索结果与预期不一致')
+
+    def tearDown(self):
+        self.br.quit()
+
+
+def Suite():
+    # 定义一个单元测试容器
+    suiteTest = unittest.TestSuite()
+    # 将测试用例加入到容器
+#    suiteTest.addTest(TestCase("loginForEmail"))
+#    suiteTest.addTest(TestCase("loginForPhone"))
+    suiteTest.addTest(TestCase("simpleSearchTest"))
+
+    return suiteTest
+
+
+if __name__ == '__main__':
+
+    # unittest.main(defaultTest='suite')
+
+    # 确定生成报告的路径
+    filePath = 'E:\\workspace\\autoTest\\report\\Report.html'
+    fp = open(filePath, 'wb')
+    # 生成报告的Title,描述
+    runner = HTMLTestReportCN.HTMLTestRunner(
+        stream=fp,
+        title='自动化测试报告',
+        description='详细测试用例结果',
+        tester='wangxu'
+    )
+    runner.run(Suite())
+    fp.close()

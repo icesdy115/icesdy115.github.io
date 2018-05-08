@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//actionInnojoy/loginModule.py=utf-8
+encoding//actionInnojoy/simpleSearch.py=utf-8
+encoding//caseSuite/testSuite.py=utf-8
+encoding//elementInit/__init__.py=utf-8
+encoding//elementInit/baseURL.py=utf-8
+encoding//elementInit/findElementAPI.py=utf-8
+encoding//elementInit/loginElement.py=utf-8
+encoding//elementInit/simpleSearchElement.py=utf-8
+encoding//elementInit/tableSearchElement.py=utf-8
+encoding//testCase/loginTest.py=utf-8
+encoding//testCase/simpSearchTest.py=utf-8
+encoding//testCase/suiteTestCase.py=utf-8

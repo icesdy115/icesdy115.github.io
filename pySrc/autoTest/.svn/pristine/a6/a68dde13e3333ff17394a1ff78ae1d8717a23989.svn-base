@@ -1,0 +1,11 @@
+# coding=utf-8
+'''
+@author: wangxu
+URL初始化
+'''
+
+def urlInit():
+    #    url = 'http://111.225.221.215:8010/search/index.html'
+    url = 'http://www.innojoy.com/search/index.html'
+    a = 'aaa'
+    return url, a

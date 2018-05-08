@@ -1,0 +1,74 @@
+1523324292836	geckodriver	INFO	geckodriver 0.20.1
+1523324292857	geckodriver	INFO	Listening on 127.0.0.1:52306
+1523324295155	mozrunner::runner	INFO	Running command: "E:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\wangxu\\AppData\\Local\\Temp\\rust_mozprofile.BK6g47Ai4UyD"
+1523324297298	Marionette	INFO	Enabled via --marionette
+1523324304594	Marionette	INFO	Listening on port 52314
+1523324304738	Marionette	WARN	TLS certificate errors will be ignored for this session
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: http://www.innojoy.com/search/index.html, line 723: TypeError: getUser(...) is null
+JavaScript error: http://www.innojoy.com/scripts/login.js?p=V20180402, line 1: TypeError: window.parent is null
+[Child 6276, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6276, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+[Child 8168, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8168, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7368, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7368, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+1523324330018	geckodriver	INFO	geckodriver 0.20.1
+1523324330045	geckodriver	INFO	Listening on 127.0.0.1:52386
+1523324333901	mozrunner::runner	INFO	Running command: "E:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\wangxu\\AppData\\Local\\Temp\\rust_mozprofile.QLoweBydhJgX"
+1523324335566	Marionette	INFO	Enabled via --marionette
+1523324339518	Marionette	INFO	Listening on port 52394
+1523324339850	Marionette	WARN	TLS certificate errors will be ignored for this session
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: http://www.innojoy.com/search/index.html, line 723: TypeError: getUser(...) is null
+JavaScript error: http://www.innojoy.com/scripts/popupdialogsrelated.js?p=V20180404, line 1: TypeError: window.loadProjectList is not a function
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7424, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7576, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+[Child 1048, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1048, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+1523324613229	geckodriver	INFO	geckodriver 0.20.1
+1523324613253	geckodriver	INFO	Listening on 127.0.0.1:52582
+1523324616304	mozrunner::runner	INFO	Running command: "E:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\wangxu\\AppData\\Local\\Temp\\rust_mozprofile.ZhXVIkFh66kL"
+1523324617212	Marionette	INFO	Enabled via --marionette
+1523324620764	Marionette	INFO	Listening on port 52590
+1523324621586	Marionette	WARN	TLS certificate errors will be ignored for this session
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: http://www.innojoy.com/search/index.html, line 723: TypeError: getUser(...) is null
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+[Child 6988, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6988, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: jar:file:///E:/Program%20Files/Mozilla%20Firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 593: TypeError: this.tablesData[table] is undefined
+JavaScript error: resource:///modules/FormSubmitObserver.jsm, line 218: TypeError: this._mm is null
+JavaScript error: http://www.innojoy.com/search/index.html, line 1215: NS_ERROR_NOT_INITIALIZED: 
+JavaScript error: chrome://followonsearch/content/followonsearch-fs.js?q=0.4487159364547998, line 264: TypeError: win is null
+JavaScript error: http://www.innojoy.com/client/merge?p=V2018040202&files=popdrop.js+clientstorage.js+comm.js+dawei.const.js+dawei_control.js+loadingproc.js, line 3: TypeError: d is undefined
+[Child 7884, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7884, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x690001,name=PRemoteSpellcheckEngine::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+Unable to read VR Path Registry from C:\Users\wangxu\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7924, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7924, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

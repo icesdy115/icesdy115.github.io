@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<userData>
+	<email>
+		<login>liyuxin3154@163.com,111111,dawei</login>
+		<login>liyuxin@163.com,111111,账号或密码错误！</login>
+		<login>,111111,请输入账号！</login>
+		<login>liyuxin3154@163.com,,用户名或密码不能为空</login>
+		<login>,111111,请输入账号！</login>
+	</email>
+	<phone>
+		<login>123,111111,请输入密码！</login>
+		<login>456,111111,dawei</login>
+	</phone>
+</userData>

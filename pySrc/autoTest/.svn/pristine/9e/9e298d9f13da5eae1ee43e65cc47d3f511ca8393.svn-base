@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!--
+	<title>简单检索数据集</title>
+	<context>分为两部分：1、检索式,2、预期结果；检索式和预期结果用'|'分割</context>
+-->
+<expression>
+	<searchExpression>
+		<express>car|458270</express>
+		<express>pd=2015|2289346</express>
+		<express>ti='gprs'|123</express>
+	</searchExpression>
+</expression>
